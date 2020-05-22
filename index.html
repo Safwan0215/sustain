@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content= "width=device-width, user-scalable=no">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+	<section class="main">
+		<form id="regForm" action="/action_page.php">
+			
+			<div class="tab">
+				<div data-include="personal-details.html"></div>
+			</div>	
+
+			<div class="tab">
+				<h1 class="title">വീട്ടിലെ അംഗങ്ങളുടെ വിവരങ്ങൾ</h1>
+				<div id="memberCardContainer">
+					<iframe src="cards.html" style="display: none;"></iframe>
+				</div>
+				<div class="modal-btn">
+					<button type="button" id="addMemberBtn">+</button>
+				</div>
+			</div>
+
+
+			<div class="tab">
+				<div data-include="household-details.html"></div>
+			</div>
+
+
+			<div class="tab">
+				<div data-include="watersource-details.html"></div>
+			</div>
+
+
+			<div class="tab">
+				<div data-include="living-comfort-details.html"></div>
+			</div>
+
+
+			<div class="tab">
+				<div data-include="farming-details.html"></div>
+			</div>
+												
+
+			<div class="tab">
+				<div data-include="consumer-details.html"></div>
+			</div>
+
+
+			<div class="nxt-prv-btn">
+				<button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+				<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+			</div>
+			<!-- Circles which indicates the steps of the form: -->
+			<div class="indicator">
+				<span class="step"></span>
+				<span class="step"></span>
+				<span class="step"></span>
+				<span class="step"></span>
+				<span class="step"></span>
+				<span class="step"></span>
+				<span class="step"></span>
+			</div>
+		</form>
+	</section>
+
+	<div id="addMemberModal" class="modal">
+		<div class="modal-content">
+			<span id="modal1Close" class="close">&times;</span>
+			<form id="addMemberForm">
+				<div>
+					<h1 class="title">അംഗത്തിന്റെ വിവരങ്ങൾ </h1>
+					<div class="m-form-element">
+						<label for="">അംഗത്തിന്റെ പേര് </label>
+						<input id="nameInput" type="text" value="">
+					</div>
+					<div class="m-form-element">
+						<label for="">ജനന തിയ്യതി</label>
+						<input id="dobInput" type="date">
+					</div>
+					<div class="m-form-element">
+						<label for="">ലിംഗഭേദം</label>
+						<div class="form-element-radio">
+							<input type="radio" name="gender" value="പുരുഷൻ">പുരുഷൻ
+							<input type="radio" name="gender" value="സ്‌ത്രീ">സ്‌ത്രീ
+							<input type="radio" name="gender" value="മറ്റുള്ളവ">മറ്റുള്ളവ
+						</div>
+					</div>
+					<div class="m-form-element">
+						<label for="">തൊഴിൽ</label>
+						<input id="occupationInput" type="text">
+					</div>
+					<div class="m-form-element">
+						<label for="">വാർഷിക വരുമാനം</label>
+						<input id="incomeInput" type="number">
+					</div>
+					<div class="m-form-element">
+						<label for="">വിദ്യാഭ്യാസം</label>
+						<input id="qualificationInput" type="text">
+					</div>
+					<div class="m-form-element">
+						<label for="">സാങ്കേതിക പരിജ്ഞാനം</label>
+						<input id="techSkillsInput" type="text">
+					</div>
+					<div class="m-form-element">
+						<label for="">കൈത്തൊഴിൽ പരിജ്ഞാനം</label>
+						<input id="otherSkillsInput" type="text">
+					</div>
+					<div class="modal-btn">
+						<button type="button" onclick="addMemberCard()">Add</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="addCropQuantity" class="modal">
+		<div class="modal-content">
+			<span id="modal2Close" class="close">&times;</span>
+			<form id="addCropForm">
+				<div>
+					<h1 class="title">കാര്ഷികോത്പന്നം - അളവ്</h1>
+					<div class="m-form-element">
+						<label for="">എണ്ണം</label>
+						<input id="countCropInput" type="number" placeholder="">
+					</div>
+					<div class="m-form-element">
+						<label for="">ദിവസവിളവ്</label>
+						<input id="dayProductionInput" type="number">
+					</div>
+					<div class="m-form-element">
+						<label for="">ആഴ്ച്ചവിളവ്</label>
+						<input id="weekProductionInput" type="number">
+					</div>
+					<div class="m-form-element">
+						<label for="">മാസവിളവ്</label>
+						<input id="monthProductionInput" type="number">
+					</div>
+					<div class="m-form-element">
+						<label for="">വാർഷികവിളവ്</label>
+						<input id="yearProductionInput" type="number">
+					</div>
+					<div class="modal-btn">
+						<button id="cropModalBtn" onclick="addCropCard()" type="button">Add</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div id="addProductQuantity" class="modal">
+		<div class="modal-content">
+			<span id="modal3Close" class="close">&times;</span>
+			<form id="addProductForm">
+				<div>
+					<h1 class="title">ഉപഭോക്തൃ ഉത്പന്നം - അളവ്</h1>
+					<div class="m-form-element">
+						<label for="">എണ്ണം</label>
+						<input id="countProductInput" type="number" placeholder="">
+					</div>
+					<div class="m-form-element">
+						<label for="">ദിവസഉപഭോഗം</label>
+						<input id="dayUseInput" type="number">
+					</div>
+					<div class="m-form-element">
+						<label for="">ആഴ്ച്ചഉപഭോഗം</label>
+						<input id="weekUseInput" type="number">
+					</div>
+					<div class="m-form-element">
+						<label for="">മാസഉപഭോഗം</label>
+						<input id="monthUseInput" type="number">
+					</div>
+					<div class="m-form-element">
+						<label for="">വാർഷികഉപഭോഗം</label>
+						<input id="yearUseInput" type="number">
+					</div>
+					<div class="modal-btn">
+						<button id="productModalBtn" onclick="addProductCard()" type="button">Add</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>

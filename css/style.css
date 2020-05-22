@@ -1,0 +1,222 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    /*line-height: 1; */
+    font-family: 'Baloo Chettan 2', cursive;
+    color: #111111;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+#regForm {
+  background-color: #ffffff;
+  padding: 20px;
+  float: left;
+  width: 100%;
+}
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 1px solid #aaaaaa;
+}
+input.invalid {
+  background-color: #ffdddd;
+}
+.tab {
+  display: none;
+}
+.nxt-prv-btn button,.modal-btn button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.8;
+}
+#prevBtn {
+  background-color: #bbbbbb;
+}
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+.step.active {
+  opacity: 1;
+}
+.step.finish {
+  background-color: #4CAF50;
+}
+.indicator{
+  text-align:center;
+  margin-top:40px;
+  float: left;
+  width: 100%;
+}
+::placeholder {
+  opacity: .7; 
+}
+
+:-ms-input-placeholder { 
+  opacity: .7;
+}
+
+::-ms-input-placeholder { 
+  opacity: .7;
+}
+.member-card{
+  background: red;
+  float: left;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.card-row{
+  background: aqua;
+  width: 100%;
+  float: left;
+}
+.row-col-6{
+  background: blueviolet;
+  width: 50%;
+  float: left;
+}
+.row-col-9{
+  background: rgb(18, 167, 67);
+  width: 75%;
+  float: left;
+}
+.value{
+  background-color: burlywood;
+}
+.card-row h3{
+  font-size: 18px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-btn{
+  width: 100%;
+  margin-bottom: 15px;
+  float: left;
+
+}
+.modal .modal-btn{
+  float: none;
+
+}
+.in{
+  overflow: hidden;
+}
+.m-form-element{
+  width: 100%;
+}
+.form-element-radio input {
+  width: auto;
+}
+.form-element-radio{
+  width: 100%;
+;
+}
+.form-element select{
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+}
+.goods-tbl {
+  border-collapse: collapse;
+  width: 100%;
+}
+.goods-tbl td, .goods-tbl th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.goods-tbl tr:nth-child(even){background-color: #f2f2f2;}
+
+.goods-tbl tr:hover {background-color: #ddd;}
+
+.goods-tbl th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4CAF50;
+  color: white;
+}
+.goods-tbl td input{
+  width: 30%;
+}
