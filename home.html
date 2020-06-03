@@ -73,7 +73,6 @@
 
 	<div id="addMemberModal" class="modal">
 		<div class="modal-content">
-			<span id="modal1Close" class="close">&times;</span>
 			<form id="addMemberForm">
 				<div>
 					<h1 class="title">അംഗത്തിന്റെ വിവരങ്ങൾ </h1>
@@ -83,7 +82,9 @@
 					</div>
 					<div class="form-element">
 						<label class="input-label" for="">ജനന തിയ്യതി</label>
-						<input class="form-control" id="dobInput" type="date">
+						<div class="form-date">
+							<input class="form-control" id="dobInput" type="date" placeholder="dd/mm/yyyy">
+						</div>
 					</div>
 					<div class="form-element">
 						<label class="input-label" for="">ലിംഗഭേദം</label>
@@ -120,7 +121,8 @@
 						<input class="form-control" id="otherSkillsInput" type="text">
 					</div>
 					<div class="modal-btn">
-						<button type="button" onclick="addMemberCard()">Add</button>
+						<button type="button" class="cancel-btn" id="modal1Close">Cancel</button>
+						<button type="button" class="add-btn" onclick="addMemberCard()">Add</button>
 					</div>
 				</div>
 			</form>
@@ -129,7 +131,6 @@
 
 	<div id="addCropQuantity" class="modal">
 		<div class="modal-content">
-			<span id="modal2Close" class="close">&times;</span>
 			<form id="addCropForm">
 				<div>
 					<h1 class="title">കാര്ഷികോത്പന്നം - അളവ്</h1>
@@ -154,7 +155,8 @@
 						<input class="form-control" id="yearProductionInput" type="number">
 					</div>
 					<div class="modal-btn">
-						<button id="cropModalBtn" onclick="addCropCard()" type="button">Add</button>
+						<button id="modal2Close" class="cancel-btn"  type="button">Cancel</button>
+						<button id="cropModalBtn" class="add-btn" onclick="addCropCard()" type="button">Add</button>
 					</div>
 				</div>
 			</form>
@@ -163,7 +165,6 @@
 
 	<div id="addProductQuantity" class="modal">
 		<div class="modal-content">
-			<span id="modal3Close" class="close">&times;</span>
 			<form id="addProductForm">
 				<div>
 					<h1 class="title">ഉപഭോക്തൃ ഉത്പന്നം - അളവ്</h1>
@@ -188,7 +189,8 @@
 						<input class="form-control" id="yearUseInput" type="number">
 					</div>
 					<div class="modal-btn">
-						<button id="productModalBtn" onclick="addProductCard()" type="button">Add</button>
+						<button id="modal3Close" class="cancel-btn"  type="button">Cancel</button>
+						<button id="productModalBtn" class="add-btn" onclick="addProductCard()" type="button">Add</button>
 					</div>
 				</div>
 			</form>

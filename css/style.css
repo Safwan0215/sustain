@@ -270,9 +270,12 @@ table {
     margin: 25px 15px;
     padding: 20px;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
     border-radius: 10px;
+}
+.modal-content .title{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 .close {
     color: #aaa;
@@ -287,14 +290,41 @@ table {
 }
 .modal-btn {
     width: 100%;
-    margin-bottom: 15px;
-    float: left;
+    margin-top: 15px;
+    font-size: 0;
+}
+.modal-btn .add-btn{
+    height: 40px;
+    width: 60%;
+    border: none;
+    background-color: #6CB436;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    vertical-align: middle;
+    font-size: 1rem;
+}
+.modal-btn .cancel-btn{
+    height: 40px;
+    width: 38%;
+    margin-right: 2%;
+    vertical-align: middle;
+    border: none;
+    background-color: #757d81;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 .modal .modal-btn {
     float: none;
+
 }
 .in {
     overflow: hidden;
+}
+.form-element-radio .select-radio{
+    margin-right: 10px;
 }
 .form-element-radio .select-radio input{
     -webkit-appearance: none;
@@ -309,6 +339,32 @@ table {
     background-color: #6cb436;
     border-color: white;
     box-shadow: 0 0 0 3px #6cb436;
+}
+.form-element.form-address .form-control{
+    margin-bottom: 10px;
+}
+.form-date .form-control{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.form-date{
+    position: relative;
+}
+.form-date::after{
+    content: '\F0E18';
+    font-family: "Material Design Icons";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 1.5rem;
+    pointer-events: none;
+    color: #b4b6bf;
+    background-color: white;
+    border-radius: 8px;
 }
 
 
