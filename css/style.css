@@ -146,6 +146,7 @@ table {
 }
 .select-control{
     position: relative;
+    clear: both;
 }
 .select-control .form-control{
     -webkit-appearance: none;

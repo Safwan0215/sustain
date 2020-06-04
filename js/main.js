@@ -75,42 +75,6 @@ function fixStepIndicator(n) {
 	// document.getElementsByClassName("step")[currentTab].className += " finish";
 }
 
-
-// Get the modal
-var modal1 = document.getElementById("addMemberModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("addMemberBtn");
-
-// Get the <span> element that closes the modal
-var span1 = document.getElementById("modal1Close");
-var span2 = document.getElementById("modal2Close")
-var modal2 = document.getElementById("addCropQuantity")
-var span3 = document.getElementById("modal3Close")
-var modal3 = document.getElementById("addProductQuantity")
-
-var hideBody = document.getElementsByTagName('body')[0];
-// When the user clicks the button, open the modal 
-btn.onclick = function () {
-	modal1.style.display = "block";
-	hideBody.classList.add('in');
-	document.getElementById("addMemberForm").reset();
-}
-
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function () {
-	modal1.style.display = "none";
-	hideBody.classList.remove('in');
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-	if (event.target == modal1) {
-		modal1.style.display = "none";
-		hideBody.classList.remove('in');
-	}
-}
-
-
 function addGoodsTable() {
 	var sel = document.getElementById('goods');
 	x = sel.selectedIndex
@@ -136,24 +100,66 @@ function rowAdd() {
 	x.setAttribute("type", "number");
 	document.getElementById("goodsTable").rows[1].cells[1].appendChild(x)
 }
+
+
+// Get the modal
+var modal1 = document.getElementById("addMemberModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("addMemberBtn");
+
+// Get the <span> element that closes the modal
+var cancel1 = document.getElementById("modal1Close");
+var cancel2 = document.getElementById("modal2Close")
+var modal2 = document.getElementById("addCropQuantity")
+var cancel3 = document.getElementById("modal3Close")
+var modal3 = document.getElementById("addProductQuantity")
+var hideBody = document.getElementsByTagName('body')[0];
+var modalFlag = true
+// When the user clicks the button, open the modal 
+btn.onclick = function () {
+	modal1.style.display = "block";
+	hideBody.classList.add('in');
+	document.getElementById("addMemberForm").reset();
+	if(modalFlag==true){
+	document.getElementById("nameInput").value = document.getElementById("firstMember").value
+	modalFlag = false;
+	}
+}
+
+// When the user clicks on <span> (x), close the modal
+cancel1.onclick = function () {
+	modal1.style.display = "none";
+	hideBody.classList.remove('in');
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+	if (event.target == modal1) {
+		modal1.style.display = "none";
+		hideBody.classList.remove('in');
+	}
+}
+
 // for modal 2
 function addCrops(listNo){
 	var selectList = document.getElementById("crops"+listNo);
 	listIndex = selectList.selectedIndex
 	cropName = selectList[listIndex].value
-	selectList.remove(listIndex);
 	modal2.style.display = "block";
 	hideBody.classList.add('in');
+	document.getElementById("titleCrop").innerHTML = cropName + " - അളവ്"
 	document.getElementById("cropModalBtn").setAttribute("onclick", "addCropCard("+listNo+")");
 	document.getElementById("addCropForm").reset();
-	span2.onclick = function () {
+	cancel2.onclick = function () {
 		modal2.style.display = "none";
 		hideBody.classList.remove('in');
+		selectList.selectedIndex = "0"
 	}
 	window.onclick = function (event) {
 		if (event.target == modal2) {
 			modal2.style.display = "none";
 			hideBody.classList.remove('in');
+			selectList.selectedIndex = "0"
 		}
 	}
 }
@@ -163,19 +169,21 @@ function addProducts(listNo) {
 	var selectList = document.getElementById("products"+listNo);
 	listIndex = selectList.selectedIndex
 	productName = selectList[listIndex].value
-	selectList.remove(listIndex);
 	modal3.style.display = "block";
 	hideBody.classList.add('in');
+	document.getElementById("titleProduct").innerHTML = productName + " - അളവ്"
 	document.getElementById("productModalBtn").setAttribute("onclick", "addProductCard("+listNo+")");
 	document.getElementById("addProductForm").reset();
-	span3.onclick = function () {
+	cancel3.onclick = function () {
 		modal3.style.display = "none";
 		hideBody.classList.remove('in');
+		selectList.selectedIndex = "0"
 	}
 	window.onclick = function (event) {
 		if (event.target == modal3) {
 			modal3.style.display = "none";
 			hideBody.classList.remove('in');
+			selectList.selectedIndex = "0"
 		}
 	}
 }
@@ -209,6 +217,9 @@ function addMemberCard() {
 function addCropCard(num) {
 	modal2.style.display = "none";
 	hideBody.classList.remove('in');
+	var selectList = document.getElementById("crops"+num);
+	listIndex = selectList.selectedIndex
+	selectList.remove(listIndex);
 	var countCrop = document.getElementById("countCropInput").value;
 	var dayProduction = document.getElementById("dayProductionInput").value;
 	var weekProduction = document.getElementById("weekProductionInput").value;
@@ -230,6 +241,9 @@ function addCropCard(num) {
 function addProductCard(num) {
 	modal3.style.display = "none";
 	hideBody.classList.remove('in');
+	var selectList = document.getElementById("products"+num);
+	listIndex = selectList.selectedIndex
+	selectList.remove(listIndex);
 	var countProduct = document.getElementById("countProductInput").value;
 	var dayUse = document.getElementById("dayUseInput").value;
 	var weekUse = document.getElementById("weekUseInput").value;
